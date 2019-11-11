@@ -4,12 +4,14 @@ import axios from 'axios';
 
 const Client = props => (
     <tr>
+        <td>{props.client.client_gender}</td>
         <td>{props.client.client_firstname}</td>
         <td>{props.client.client_familyname}</td>
         <td>{props.client.client_mail}</td>
         <td>{props.client.client_password}</td>
         <td>
             <Link to={"/edit/"+props.client._id}>Edit</Link>
+
         </td>
     </tr>
 )
@@ -44,6 +46,7 @@ export default class ClientsList extends Component {
                 <table className="table table-striped" style={{ marginTop: 20 }} >
                     <thead>
                         <tr>
+                            <th>Gender</th>
                             <th>First Name</th>
                             <th>Family Name</th>
                             <th>Mail</th>

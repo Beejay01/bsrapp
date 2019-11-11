@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let Client = new Schema({
+    client_gender:{
+        type: String
+    },
     client_firstname: {
         type: String
     },
