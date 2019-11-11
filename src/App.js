@@ -9,8 +9,7 @@ import ClientsList from "./components/clients-list.component";
 
 import logo from "./logo.png";
 import Login from "./components/log-in.component";
-import Dashboard from"./components/dashboard.component";
-
+import Chart from './components/charts'
 class App extends Component {
   render() {
     return (
@@ -38,7 +37,7 @@ class App extends Component {
           <Route path="/edit/:id" component={EditClient} />
           <Route path="/create" component={CreateClient} />
           <Route path="/login" component={Login} />
-          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/charts" component={Chart} />
 
 
         </div>

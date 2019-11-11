@@ -9,6 +9,7 @@ const Client = props => (
         <td>{props.client.client_familyname}</td>
         <td>{props.client.client_mail}</td>
         <td>{props.client.client_password}</td>
+        <td>{props.client.client_school}</td>
         <td>
             <Link to={"/edit/"+props.client._id}>Edit</Link>
 
@@ -51,6 +52,7 @@ export default class ClientsList extends Component {
                             <th>Family Name</th>
                             <th>Mail</th>
                             <th>Password</th>
+                            <th>School</th>
                         </tr>
                     </thead>
                     <tbody>

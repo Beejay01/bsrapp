@@ -35,7 +35,7 @@ export default class Login extends Component {
         console.log(`Client Mail: ${this.state.client_mail}`);
         console.log(`Client Password: ${this.state.client_password}`);
 
-            this.props.history.push('/dashboard');
+            this.props.history.push('/charts');
 
         this.setState({
             client_firstname:'',

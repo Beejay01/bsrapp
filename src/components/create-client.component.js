@@ -4,7 +4,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
+
+
 export default class CreateClient extends Component {
+
     
     constructor(props) {
         super(props);
@@ -54,22 +57,15 @@ export default class CreateClient extends Component {
             client_gender: e.target.value
         });
     }
-
-    SimpleSelect() {
-        const [age, setAge] = React.useState('');
-      
-        const inputLabel = React.useRef(null);
-        const [labelWidth, setLabelWidth] = React.useState(0);
-        React.useEffect(() => {
-          setLabelWidth(inputLabel.current.offsetWidth);
-        }, []);
-      
-        const handleChange = event => {
-          setAge(event.target.value);
-        };
-    }
-
+    
     onSubmit(e) {
+        var boynumber=0;
+        var girlnumber=0;
+        if(this.state.client_gender==='M'){
+            boynumber=boynumber++;
+        }else{
+            girlnumber=girlnumber++;
+        }
         e.preventDefault();
         
         console.log(`Form submitted:`);
@@ -78,13 +74,16 @@ export default class CreateClient extends Component {
         console.log(`Client Mail: ${this.state.client_mail}`);
         console.log(`Client Password: ${this.state.client_password}`);
         console.log(`Client Gender: ${this.state.client_gender}`);
+        console.log(`nb gars: ${boynumber}`);
+        console.log(`nb filles: ${girlnumber}`);
 
         const newClient = {
             client_gender: this.state.client_gender,
             client_firstname: this.state.client_firstname,
             client_familyname: this.state.client_familyname,
             client_mail: this.state.client_mail,
-            client_password: this.state.client_password
+            client_password: this.state.client_password,
+            client_school: this.state.client_school
         };
 
         axios.post('http://localhost:4000/clients/add', newClient)
@@ -95,12 +94,14 @@ export default class CreateClient extends Component {
             client_firstname:'',
             client_familyname:'',
             client_mail: '',
-            client_password: ''
+            client_password: '',
+            client_school:''
         })
     }
 
     render() {
         return (
+
             <div style={{marginTop: 10}}>
                 <h3>You are a new student and you don't have an account ? Fulfill this form to register.</h3>
                 <form onSubmit={this.onSubmit}>
@@ -169,6 +170,7 @@ export default class CreateClient extends Component {
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
+                        value={this.state.client_school}
                     >
           <MenuItem value={1}>ESIEA</MenuItem>
           <MenuItem value={2}>SKEMA</MenuItem>
